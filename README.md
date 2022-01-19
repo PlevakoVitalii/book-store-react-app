@@ -1,8 +1,8 @@
 ## Book-store-react-app
 
-![](https://github.com/PlevakoVitalii/star-wars-react-app/blob/master/readme-image.png)
+![](https://github.com/PlevakoVitalii/book-store-react-app/blob/master/book-store-screen.bmp)
 
-Deployed todo-react-app here [Book-store](https://plevakovitalii.github.io/star-wars-react-app/star-wars-react/).
+Deployed book-store-react-app here [Book-store](https://plevakovitalii.github.io/book-store-react-app/book-store/).
 
 Implemented functionality:
 
