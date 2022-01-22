@@ -1,14 +1,15 @@
-import React from 'react';
 import { connect } from 'react-redux';
 
 import {
   bookAddedToCart,
   bookRemovedFromCart,
-  allBooksRemovedFromCart } from '../../actions';
+  allBooksRemovedFromCart
+} from '../../actions';
 
 import './shopping-cart-table.css';
 
-const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) => {
+const ShoppingCartTable = ({ items, onIncrease, onDecrease, onDelete }) => {
+
   const renderRow = (item, idx) => {
     const { id, title, count, total } = item;
     return (
@@ -38,6 +39,11 @@ const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) =
     );
   };
 
+  const sumAllTotal = (items) => {
+    let result = items.reduce((sum, item) => sum + item.total, 0)
+    return result
+  };
+
   return (
     <div className="shopping-cart-table">
       <h2>Your Order</h2>
@@ -53,18 +59,18 @@ const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) =
         </thead>
 
         <tbody>
-        { items.map(renderRow) }
+          {items.map(renderRow)}
         </tbody>
       </table>
 
       <div className="total">
-        Total: ${total}
+        Total: {sumAllTotal(items)}
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal }}) => {
+const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal } }) => {
   return {
     items: cartItems,
     total: orderTotal
